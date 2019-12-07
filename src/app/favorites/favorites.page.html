@@ -1,0 +1,42 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>Favorites</ion-title>
+    <ion-buttons *ngIf="!reorderMode" slot="end">
+      <ion-button (click)="toggleReorderMode()">Reorder</ion-button>
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+    <ion-buttons *ngIf="reorderMode" slot="end">
+      <ion-button (click)="toggleReorderMode()">Done</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-item class="add">
+      <div slot="start">
+        <ion-icon size="large" name="add"></ion-icon>
+      </div>
+      <ion-label class="ion-text-wrap">Tap to add from gallery or camera</ion-label>
+    </ion-item>
+    <ion-reorder-group (ionItemReorder)="doReorder($event)" [disabled]="!reorderMode">
+      <ion-item *ngFor="let number of [].constructor(27); let i = index">
+        <ion-thumbnail slot="start">
+          <img [src]="'https://picsum.photos/200/300?i=' + i">
+          <ion-button *ngIf="!reorderMode">
+            <ion-icon *ngIf="true" slot="icon-only" name="eye-off"></ion-icon>
+            <ion-icon *ngIf="false" slot="icon-only" name="eye"></ion-icon>
+          </ion-button>
+        </ion-thumbnail>
+        <div class="container">
+          <ion-input placeholder="Title" [value]="'Title for item #' + i"></ion-input>
+          <ion-textarea placeholder="Description" rows="3" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."></ion-textarea>
+        </div>
+        <ion-button *ngIf="!reorderMode" fill="clear" slot="end" class="delete">
+          <ion-icon slot="icon-only" name="close-circle"></ion-icon>
+        </ion-button>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+    </ion-reorder-group>
+  </ion-list>
+</ion-content>

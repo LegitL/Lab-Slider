@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
     <ion-title>
       Ionic Blank
@@ -6,9 +6,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+<ion-content class="ion-padding">
+  <h1>Some Content</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet porttitor lacus luctus. Purus non enim praesent elementum facilisis. Nunc sed id semper risus. Vitae justo eget magna fermentum iaculis eu non diam. Lacinia quis vel eros donec. In est ante in nibh mauris. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo. Elit eget gravida cum sociis natoque penatibus et magnis. Nulla facilisi etiam dignissim diam quis.</p>
+  <p>Egestas pretium aenean pharetra magna ac placerat vestibulum. Eget sit amet tellus cras. Mattis molestie a iaculis at erat pellentesque adipiscing commodo elit. Tellus elementum sagittis vitae et leo duis ut diam quam. Iaculis at erat pellentesque adipiscing commodo. Diam quam nulla porttitor massa id neque aliquam. Molestie a iaculis at erat pellentesque adipiscing commodo elit. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Id semper risus in hendrerit. Enim lobortis scelerisque fermentum dui faucibus in. Sollicitudin nibh sit amet commodo nulla facilisi nullam. Quis lectus nulla at volutpat. Eu sem integer vitae justo. Tellus elementum sagittis vitae et leo duis. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Viverra orci sagittis eu volutpat odio facilisis mauris sit. Proin sed libero enim sed faucibus turpis. Cursus mattis molestie a iaculis at erat. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+  <p>Amet facilisis magna etiam tempor orci eu lobortis. Vulputate enim nulla aliquet porttitor lacus luctus. Purus sit amet luctus venenatis lectus magna fringilla urna porttitor. Sapien eget mi proin sed. Consequat id porta nibh venenatis cras. Felis bibendum ut tristique et egestas. Non odio euismod lacinia at quis. Facilisis mauris sit amet massa vitae tortor condimentum. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque. Ultrices tincidunt arcu non sodales neque sodales ut etiam. Massa sapien faucibus et molestie ac.</p>
+  <p>Massa tincidunt nunc pulvinar sapien. Enim eu turpis egestas pretium aenean. Eu turpis egestas pretium aenean pharetra magna ac. Nulla facilisi morbi tempus iaculis urna id volutpat lacus. Magna sit amet purus gravida quis blandit. Auctor augue mauris augue neque gravida in fermentum et. A lacus vestibulum sed arcu non odio euismod. Commodo ullamcorper a lacus vestibulum sed. Non tellus orci ac auctor augue. Interdum velit euismod in pellentesque massa placerat duis ultricies. Sollicitudin ac orci phasellus egestas. Non blandit massa enim nec dui nunc mattis. Lacus sed turpis tincidunt id aliquet risus feugiat. Tempus egestas sed sed risus pretium. Eget dolor morbi non arcu. Habitant morbi tristique senectus et netus et malesuada fames ac.</p>
+  <p>Facilisis gravida neque convallis a. Arcu odio ut sem nulla pharetra diam sit amet. Suspendisse potenti nullam ac tortor vitae. Nisi scelerisque eu ultrices vitae auctor eu augue ut. Semper viverra nam libero justo laoreet. Felis eget velit aliquet sagittis id consectetur purus. Netus et malesuada fames ac turpis egestas integer eget aliquet. Etiam sit amet nisl purus. Sit amet volutpat consequat mauris nunc congue nisi. Etiam sit amet nisl purus. Viverra ipsum nunc aliquet bibendum.</p>
 </ion-content>
+
+<ion-footer no-border class="ion-padding-bottom ion-padding-top">
+  <ion-slides [options]="slideOptions" (ionSlideTap)="onThumbnailTap($event)">
+    <ion-slide>
+      <div class="more">
+        <ion-icon size="large" name="more"></ion-icon>
+      </div>
+    </ion-slide>
+    <ion-slide *ngFor="let number of [].constructor(27); let i = index">
+      <img [src]="'https://picsum.photos/200/300?i=' + i">
+    </ion-slide>
+  </ion-slides>
+</ion-footer>
