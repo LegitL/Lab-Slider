@@ -22,8 +22,8 @@
         <ion-icon size="large" name="more"></ion-icon>
       </div>
     </ion-slide>
-    <ion-slide *ngFor="let number of [].constructor(27); let i = index">
-      <img [src]="'https://picsum.photos/200/300?i=' + i">
+    <ion-slide *ngFor="let item of items; let i = index">
+      <img [src]="item.url">
     </ion-slide>
   </ion-slides>
 </ion-footer>

@@ -14,25 +14,27 @@
 <ion-content>
   <ion-list lines="none">
     <ion-item class="add">
-      <div slot="start">
+      <div slot="start" (click)="add()">
         <ion-icon size="large" name="add"></ion-icon>
       </div>
       <ion-label class="ion-text-wrap">Tap to add from gallery or camera</ion-label>
     </ion-item>
     <ion-reorder-group (ionItemReorder)="doReorder($event)" [disabled]="!reorderMode">
-      <ion-item *ngFor="let number of [].constructor(27); let i = index">
+      <ion-item *ngFor="let item of items; let i = index">
         <ion-thumbnail slot="start">
-          <img [src]="'https://picsum.photos/200/300?i=' + i">
-          <ion-button *ngIf="!reorderMode">
-            <ion-icon *ngIf="true" slot="icon-only" name="eye-off"></ion-icon>
-            <ion-icon *ngIf="false" slot="icon-only" name="eye"></ion-icon>
+          <img [src]="item.url">
+          <ion-button *ngIf="!(reorderMode || item.isWikiart)" (click)="togglePublic(item)">
+            <ion-icon *ngIf="!item.isPublic" slot="icon-only" name="eye-off"></ion-icon>
+            <ion-icon *ngIf="item.isPublic" slot="icon-only" name="eye"></ion-icon>
           </ion-button>
         </ion-thumbnail>
         <div class="container">
-          <ion-input placeholder="Title" [value]="'Title for item #' + i"></ion-input>
-          <ion-textarea placeholder="Description" rows="3" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."></ion-textarea>
+          <ion-input placeholder="Title" [value]="item.title" [readonly]="item.isWikiart"
+              (ionBlur)="onTitleBlur($event, i)"></ion-input>
+          <ion-textarea placeholder="Description" rows="3" [value]="item.description" [readonly]="item.isWikiart"
+              (ionBlur)="onDescriptionBlur($event, i)"></ion-textarea>
         </div>
-        <ion-button *ngIf="!reorderMode" fill="clear" slot="end" class="delete">
+        <ion-button *ngIf="!reorderMode" fill="clear" slot="end" class="delete" (click)="delete(i)">
           <ion-icon slot="icon-only" name="close-circle"></ion-icon>
         </ion-button>
         <ion-reorder slot="end"></ion-reorder>
