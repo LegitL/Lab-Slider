@@ -10,7 +10,8 @@ import { FavoritesPage } from '../favorites/favorites.page';
 export class HomePage {
 
   slideOptions = {
-    slidesPerView: 'auto'
+    slidesPerView: 'auto',
+    zoom: false,
   };
 
 
